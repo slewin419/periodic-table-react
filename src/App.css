@@ -24,8 +24,7 @@
 
 #periodic-table .element{ 
   position: relative;   
-  box-sizing: border-box;  
-  height: 100px;
+  box-sizing: border-box;    
   margin: 4px 4px;
   background: white;
   color: black;  
@@ -35,7 +34,7 @@
   display: block;
   line-height: 90px;
   text-align: center;
-  font-size: 48px;
+  font-size: 2.5vw;
 }
 
 h1.title {
