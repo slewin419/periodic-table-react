@@ -3,8 +3,10 @@
 }
 
 #periodic-table {
+  position: relative;
   min-width: 950px;
   margin: 10px 10px;
+  padding-top: 50px;
 }
 
 #periodic-table .row {
@@ -24,17 +26,28 @@
 
 #periodic-table .element{ 
   position: relative;   
-  box-sizing: border-box;    
+  box-sizing: border-box;
+  border-radius: 5px;   
   margin: 4px 4px;
   background: white;
   color: black;  
+}
+
+#element-info-display {
+  position: absolute;  
+  top: 0;
+  left: 27.75%;
+  background: white;
+  width: 27.75%;
+  height: 350px;  
+  border-radius: 5px;
 }
 
 .element .symbol {
   display: block;
   line-height: 90px;
   text-align: center;
-  font-size: 2vw;
+  font-size: 2.3vw;
 }
 
 .element .name {

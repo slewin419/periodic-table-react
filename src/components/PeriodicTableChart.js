@@ -24,11 +24,15 @@ class PeriodicTableChart extends React.Component {
         // };
     }
 
+    displayInfo(e){
+        console.log(e);
+    }
+
     element(x, y) {
         return (
-            <Element xpos={x} ypos={y} />
+            <Element xpos={x} ypos={y}/>
         );
-    }
+    }    
 
     createTable() {
         let table = [];
@@ -46,7 +50,8 @@ class PeriodicTableChart extends React.Component {
     render() {
         return (
             <div id="periodic-table">
-                {this.createTable()}
+                <div id="element-info-display"></div>
+                {this.createTable()}                
             </div>
         );
     }

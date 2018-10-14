@@ -6,34 +6,25 @@ class Element extends React.Component {
         super(props);
 
         this.element = ElementAPI.getElementByPosition(props.xpos, props.ypos);           
+    }    
+
+    displayInfo = () => {
+        
     }
 
     renderElement(element){
         return(
-            <div className="element">                
+            <div className="element" onClick={this.displayInfo}>                
                 {/* <span className="position">{`${element.xpos}, ${element.ypos}`}</span> */}
                 <span className="number">{element.number}</span>
                 <span className="symbol">{element.symbol}</span>
-                <span className="name">{element.name}</span>
+                <span className="name">{element.name}</span>                
             </div>
         )
     }
 
-    renderSpace(){
-        return(
-            <span></span>
-        )
-    }
-
-    render() {
-        let element;
-        if(this.element) {            
-            element = this.renderElement(this.element);
-        } else (
-            element = this.renderSpace()
-        )
-
-        return element;
+    render() {                
+        return (this.element) ? this.renderElement(this.element) : <div className="block blank"></div>;
     }
 }
 
