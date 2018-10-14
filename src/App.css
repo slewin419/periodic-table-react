@@ -22,7 +22,8 @@
   background: transparent;
 }
 
-#periodic-table .element{    
+#periodic-table .element{ 
+  position: relative;   
   box-sizing: border-box;  
   height: 100px;
   margin: 4px 4px;
@@ -31,11 +32,10 @@
 }
 
 .element .symbol {
-  position: relative;
-  top: 10%;
-  display: block;  
-  text-align: center; 
-  font-size: 3vw; 
+  display: block;
+  line-height: 90px;
+  text-align: center;
+  font-size: 48px;
 }
 
 h1.title {
