@@ -4,11 +4,13 @@ const ELEMENTS = elementJSON.elements;
 
 var ElementAPI = {
     getElementByPosition(x,y) {
-        var element = ELEMENTS.splice(ELEMENTS.findIndex((element) => {
+        let index = ELEMENTS.findIndex((element) => {
             return (element.xpos === x && element.ypos === y);
-        }),1);
+        });        
+
+        //let element = ELEMENTS.splice(index, 1);
         
-        return element[0] || false;
+        return (index !== -1) ? ELEMENTS[index] : false;
     }
 }
 export default ElementAPI;

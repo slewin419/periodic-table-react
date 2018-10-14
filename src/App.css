@@ -34,7 +34,21 @@
   display: block;
   line-height: 90px;
   text-align: center;
-  font-size: 2.5vw;
+  font-size: 2vw;
+}
+
+.element .name {
+  display: block;  
+  text-align: center;
+  font-size: 0.75vw;
+}
+
+.element .number {
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  display: inline;    
+  font-size: 0.75vw;
 }
 
 h1.title {
