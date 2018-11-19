@@ -1,5 +1,6 @@
 import React from 'react';
 import Element from './Element';
+import ElementDisplay from './ElementDisplay';
 
 class PeriodicTableChart extends React.Component {
 
@@ -9,37 +10,32 @@ class PeriodicTableChart extends React.Component {
         this.ROWS = 10;
         this.COLUMNS = 18;
 
-        this.FULL_ROW = { start: 0, end: 0 };
+        this.displayInfo = this.displayInfo.bind(this);
 
-        // this.blankRowMap = {
-        //     1: { start: 2, end: 17 },
-        //     2: { start: 3, end: 12 },
-        //     3: { start: 3, end: 12 },
-        //     4: this.FULL_ROW,
-        //     5: this.FULL_ROW,
-        //     6: this.FULL_ROW,
-        //     7: this.FULL_ROW,
-        //     8: { start: 0, end: 3 },
-        //     9: { start: 0, end: 3 }
-        // };
+        this.state = {
+            currentElement: null
+        };
     }
 
-    displayInfo(e){
-        console.log(e);
+    displayInfo(element) {
+        //console.table(element);
+        this.setState({
+            currentElement: element
+        });
     }
 
     element(x, y) {
         return (
-            <Element xpos={x} ypos={y}/>
+            <Element xpos={x} ypos={y} handleClick={this.displayInfo} />
         );
-    }    
+    }
 
     createTable() {
         let table = [];
         for (var y = 1; y <= this.ROWS; y++) {
             let columns = [];
-            for (var x = 1; x <= this.COLUMNS; x++) {                
-                columns.push(<div className={"block " + x + "-" + y} key={x + y} >{this.element(x, y)}</div >);                
+            for (var x = 1; x <= this.COLUMNS; x++) {
+                columns.push(<div className={"block " + x + "-" + y} key={x + y} >{this.element(x, y)}</div >);
             }
             table.push(<div id={y} key={y}>{columns}</div>);
         }
@@ -50,8 +46,8 @@ class PeriodicTableChart extends React.Component {
     render() {
         return (
             <div id="periodic-table">
-                <div id="element-info-display"></div>
-                {this.createTable()}                
+                <ElementDisplay element={this.state.currentElement} />
+                {this.createTable()}
             </div>
         );
     }

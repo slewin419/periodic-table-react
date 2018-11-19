@@ -1,3 +1,21 @@
+@keyframes spin {
+  0% {
+    transform: rotate3d(0,0,1,0deg);
+  }
+  100% {
+    transform: rotate3d(0,0,1,360deg);
+  }
+}
+
+@keyframes spin-cc {
+  0% {
+    transform: rotate3d(0,0,1,360deg);
+  }
+  100% {
+    transform: rotate3d(0,0,1,0deg);
+  }
+}
+
 #App {  
   background: #51d6b7;  
 }
@@ -5,42 +23,23 @@
 #periodic-table {
   position: relative;
   min-width: 950px;
-  margin: 10px 10px;
-  padding-top: 50px;
-}
-
-#periodic-table .row {
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 
 #periodic-table .block{  
   display: inline-block;  
   width: 5.55%;
-  min-width: 50px;
-}
-
-#periodic-table .blank{
-  background: transparent;
 }
 
 #periodic-table .element{ 
   position: relative;   
-  box-sizing: border-box;
   border-radius: 5px;   
   margin: 4px 4px;
   background: white;
-  color: black;  
+  cursor: pointer;
 }
 
-#element-info-display {
-  position: absolute;  
-  top: 0;
-  left: 27.75%;
-  background: white;
-  width: 27.75%;
-  height: 350px;  
-  border-radius: 5px;
+#periodic-table .element:hover {
+  background: gray;
 }
 
 .element .symbol {
@@ -67,5 +66,69 @@
 h1.title {
   font-size: 60px;
   text-align: center;
-  margin-top: 0;
+  margin: 0 0 20px;
+}
+
+#element-display {
+  position: absolute;
+  top: 0;
+  left: 27.75%;
+  background: white;
+  width: 27.75%;
+  height: 450px;  
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 10px;
+  z-index: 999;
+  perspective: 1000px;
+}
+
+.atom {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background: rgba(255,255,0, 0.2);
+  margin: 0 auto;
+  transform-style: preserve-3d;
+}
+
+.atom > .shell {   
+    position: absolute;     
+    border: 1px solid rgba(0,0,0, 0.5);
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;    
+    margin: auto;  
+    transform-style: preserve-3d;  
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+}
+
+.atom > .shell > .electron {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: black;    
+    border-radius: 50%;
+    left: 50%;
+    top: 48.5%;
+    margin-left: -3px;
+    margin-right: -3px;
+    transform-style: preserve-3d;
+}
+
+.atom-info {
+  position: absolute;
+  bottom: 0;
+  padding: 5px;
+}
+
+.atom-info > * {
+  margin: 5px 0;
+  padding: 0;  
+  font-size: 0.75em;
+  text-align: left;
 }
