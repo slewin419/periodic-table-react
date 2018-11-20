@@ -1,0 +1,166 @@
+@keyframes spin {
+  0% {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+
+  100% {
+    transform: rotate3d(0, 0, 1, 360deg);
+  }
+}
+
+@keyframes spin-cc {
+  0% {
+    transform: rotate3d(0, 0, 1, 360deg);
+  }
+
+  100% {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+#App {
+  background: #51d6b7;
+}
+
+#app-menu {
+
+  .container {
+    padding: 0 15px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .menu-list {
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+      border-top: 1px solid red;
+      padding: 30px 0;
+      margin: 0 -15px;
+      text-align: center;
+      transition: background 0.25s linear;
+
+      &:hover {
+        background: #ffff0050;
+      }
+
+      &:active {
+        background: #ffff0080;
+      }
+
+      &:last-child {
+        border-bottom: 1px solid red;
+      }
+    }
+
+  }
+}
+
+
+#periodic-table {
+  position: relative;
+  min-width: 950px;
+  padding-top: 150px;
+
+  .block {
+    display: inline-block;
+    width: 5.5%;
+  }
+
+  .element {
+    position: relative;
+    border-radius: 5px;
+    margin: 4px;
+    background: white;
+    cursor: pointer;
+
+    .symbol {
+      display: block;
+      line-height: 90px;
+      text-align: center;
+      font-size: 2.3vw;
+    }
+
+    .name {
+      display: block;
+      text-align: center;
+      font-size: 0.75vw;
+    }
+
+    .number {
+      position: absolute;
+      top: 2px;
+      left: 5px;
+      display: inline;
+      font-size: 0.75vw;
+    }
+
+    &:hover {
+      background: gray;
+    }
+  }
+}
+
+.page-title {
+  font-size: 60px;
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+#element-display {
+  position: absolute;
+  top: 0;
+  left: 27.75%;
+  background: white;
+  width: 27.75%;
+  height: 480px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 10px;
+  z-index: 999;
+  perspective: 1000px;
+
+  .atom {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 0, 0.2);
+    margin: 0 auto;
+    transform-style: preserve-3d;
+
+    >.shell {
+      position: absolute;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      transform-style: preserve-3d;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+
+      >.electron {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: black;
+        border-radius: 50%;
+        left: 50%;
+        top: 48.5%;
+        margin-left: -3px;
+        margin-right: -3px;
+        transform-style: preserve-3d;
+      }
+    }
+  }
+}

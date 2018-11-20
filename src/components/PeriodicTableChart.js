@@ -18,7 +18,7 @@ class PeriodicTableChart extends React.Component {
     }
 
     displayInfo(element) {
-        //console.table(element);
+        console.table(element);
         this.setState({
             currentElement: element
         });

@@ -21,7 +21,7 @@ class ElementDisplay extends React.Component {
                     </div>
                     <div className="atom-info">
                         <h4><a href={element.source}>{element.name}</a> ({element.phase + ', ' + element.category})</h4>
-                        <h6><i>Discovered by: {element.discovered_by}</i></h6>
+                        <h5><i>Discovered by: {element.discovered_by}</i></h5>
                         <p>
                             {element.summary}
                         </p>
@@ -29,7 +29,9 @@ class ElementDisplay extends React.Component {
                 </div>
             )
         }
-        return <div id="element-display"></div>
+        return <div id="element-display" className="text-center">
+                    <h2>Click an element to show its information here.</h2>
+                </div>
     }
 
 
