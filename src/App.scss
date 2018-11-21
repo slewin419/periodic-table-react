@@ -29,17 +29,38 @@
 #app-menu {
 
   .container {
+    position: relative;
     padding: 0 15px;
   }
 
-  h2 {
-    text-align: center;
+  .title {
     margin-bottom: 50px;
+    text-align: center;
+  }
+
+  .menu-header {
+    position: relative;
+    min-height: 50px;
+  }
+
+  .toggle-icon {
+    position: absolute;
+    padding: 15px;
+    right: 0px;
+    cursor: pointer;
+
+    > div {
+        margin: 6px 0;
+        width: 35px;
+        height: 5px;
+        background: red;
+    }
   }
 
   .menu-list {
     list-style-type: none;
     padding-left: 0;
+    cursor: pointer;
 
     li {
       border-top: 1px solid red;
@@ -162,5 +183,15 @@
         transform-style: preserve-3d;
       }
     }
+  }
+
+  .atom-info {
+     * {
+       margin: 5px 0;
+     }
+
+      .summary {
+        font-size: 14px;
+      }
   }
 }

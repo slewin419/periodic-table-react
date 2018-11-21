@@ -22,7 +22,7 @@ class ElementDisplay extends React.Component {
                     <div className="atom-info">
                         <h4><a href={element.source}>{element.name}</a> ({element.phase + ', ' + element.category})</h4>
                         <h5><i>Discovered by: {element.discovered_by}</i></h5>
-                        <p>
+                        <p className="summary">
                             {element.summary}
                         </p>
                     </div>

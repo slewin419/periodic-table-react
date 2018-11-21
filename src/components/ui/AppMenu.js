@@ -1,4 +1,5 @@
 import React from 'react';
+import Item from './Item';
 
 let appMenuStyle = {
     position: 'fixed',
@@ -22,10 +23,17 @@ class AppMenu extends React.Component {
         return ( 
             <div id="app-menu" style={appMenuStyle} onClick={e => this.selectGroup(e)}>
                 <div className="container">
-                    <h2>{title}</h2>
+                    <div class="menu-header">
+			<div className="toggle-icon">
+			    <div></div>
+			    <div></div>
+			    <div></div>
+			</div>
+                    </div>
+                    <h2 className="title">{title}</h2>
                     <ul className="menu-list">
                         {
-                            items.map((item, i) => { return <li key={i}>{item.props.children}</li>})
+                            items.map((item, i) => { return <Item key={i}>{item.props.children}</Item>})
                         }
                     </ul>
                 </div>                
