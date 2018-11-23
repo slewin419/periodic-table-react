@@ -6,11 +6,20 @@ class Element extends React.Component {
         super(props);
 
         this.element = ElementAPI.getElementByPosition(props.xpos, props.ypos);
+
+        this.state = {
+            active: ''
+        }
+    }
+
+    getCategory(){
+        return this.element.category || '';
     }
 
     renderElement(element) {
+        let isActive = (this.getCategory() === this.props.active.toLowerCase()) ? 'active' : '';                
         return (
-            <div className="element" onClick={this.props.handleClick.bind(this, element)}>
+            <div className={ `element ${isActive}` } onClick={this.props.handleClick.bind(this, element)}>
                 {/* <span className="position">{`${element.xpos}, ${element.ypos}`}</span> */}
                 <span className="number">{element.number}</span>
                 <span className="symbol">{element.symbol}</span>

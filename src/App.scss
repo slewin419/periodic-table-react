@@ -43,17 +43,34 @@
     min-height: 50px;
   }
 
+  .menu-body {
+    position: absolute;
+    width: 300px;
+    height: 500px;
+    background: #ff0000df;
+    top: -500px;
+    transition: all 0.1s ease-in-out;
+
+    &.hidden {
+      left: -350px;
+    }
+
+    &.shown {
+      left: 0px;
+    }
+  }
+
   .toggle-icon {
     position: absolute;
     padding: 15px;
-    right: 0px;
+
     cursor: pointer;
 
-    > div {
-        margin: 6px 0;
-        width: 35px;
-        height: 5px;
-        background: red;
+    >div {
+      margin: 6px 0;
+      width: 35px;
+      height: 5px;
+      background: red;
     }
   }
 
@@ -61,11 +78,11 @@
     list-style-type: none;
     padding-left: 0;
     cursor: pointer;
+    background: blue;
 
     li {
       border-top: 1px solid red;
-      padding: 30px 0;
-      margin: 0 -15px;
+      padding: 15px 0;
       text-align: center;
       transition: background 0.25s linear;
 
@@ -89,7 +106,7 @@
 #periodic-table {
   position: relative;
   min-width: 950px;
-  padding-top: 150px;
+  padding: 150px 15px;
 
   .block {
     display: inline-block;
@@ -126,6 +143,10 @@
 
     &:hover {
       background: gray;
+    }
+
+    &.active {
+      background: purple;
     }
   }
 }
@@ -186,12 +207,12 @@
   }
 
   .atom-info {
-     * {
-       margin: 5px 0;
-     }
+    * {
+      margin: 5px 0;
+    }
 
-      .summary {
-        font-size: 14px;
-      }
+    .summary {
+      font-size: 14px;
+    }
   }
 }

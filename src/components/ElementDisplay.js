@@ -20,7 +20,7 @@ class ElementDisplay extends React.Component {
                         <Atom shells={element.shells} />
                     </div>
                     <div className="atom-info">
-                        <h4><a href={element.source}>{element.name}</a> ({element.phase + ', ' + element.category})</h4>
+                        <h4><a href={element.source} title="Wikipedia">{element.name}</a> ({element.phase + ', ' + element.category})</h4>
                         <h5><i>Discovered by: {element.discovered_by}</i></h5>
                         <p className="summary">
                             {element.summary}

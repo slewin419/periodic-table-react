@@ -10,20 +10,29 @@ class App extends Component {
     super(props);
 
     this.state = {
-
-    }
+        activeElementGroup: ''
+    };
   }
-  
+
+  setActiveElementGroup(group){    
+    this.setState({activeElementGroup: group});
+  }
+
   render() {
     return (
       <div id="App">
         <h1 className="page-title">Periodic Table</h1>
-        <AppMenu title={'Element Groups'}>            
-            <Item>Alkaline Earth Metal</Item>
-            <Item>Metalloids</Item>
-            <Item>Noble Gases</Item>            
+        <AppMenu title={'Element Groups'} 
+                 activeElementGroup={this.setActiveElementGroup.bind(this)}>            
+            <Item>alkaline earth metal</Item>
+            <Item>alkali metal</Item>
+            <Item>metalloid</Item>
+            <Item>noble gas</Item> 
+            <Item>diatomic nonmetal</Item>
+            <Item>transition metal</Item>
+            <Item>post-transition metal</Item>
         </AppMenu>        
-        <PeriodicTableChart />
+        <PeriodicTableChart activeElementGroup={this.state.activeElementGroup}/>
       </div>
     );
   }

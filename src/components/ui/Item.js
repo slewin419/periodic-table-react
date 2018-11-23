@@ -6,7 +6,7 @@ export default class Item extends React.Component {
     render(){
         let text = this.props.children;
         return (
-            <li>{text}</li>
+            <li onClick={this.props.onClick}>{text}</li>
         )
     }
 }

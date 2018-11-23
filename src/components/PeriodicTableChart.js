@@ -13,20 +13,20 @@ class PeriodicTableChart extends React.Component {
         this.displayInfo = this.displayInfo.bind(this);
 
         this.state = {
-            currentElement: null
+            currentElement: null            
         };
     }
 
     displayInfo(element) {
-        console.table(element);
         this.setState({
             currentElement: element
         });
     }
 
     element(x, y) {
+        let {activeElementGroup} = this.props;
         return (
-            <Element xpos={x} ypos={y} handleClick={this.displayInfo} />
+            <Element xpos={x} ypos={y} handleClick={this.displayInfo} active={activeElementGroup}/>
         );
     }
 
@@ -43,7 +43,7 @@ class PeriodicTableChart extends React.Component {
         return table;
     }
 
-    render() {
+    render() {              
         return (
             <div id="periodic-table">
                 <ElementDisplay element={this.state.currentElement} />
