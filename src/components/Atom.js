@@ -14,7 +14,7 @@ class Atom extends React.Component {
 
         for( let i = 1; i <= electrons; i++ ){
             let rotation = (360/electrons) * i,
-                translate = 20 + (level * 20);
+                translate = 10 + (level * 20);
 
             let styles = {
                 transform: 'rotate(' + rotation + 'deg) translate(' + translate + 'px)'
@@ -24,9 +24,9 @@ class Atom extends React.Component {
         }
 
         let animation = {
-            width: 40 + (level * 40) + 'px',
-            height: 40 + (level * 40) + 'px',
-            animationDuration: (++level)*3 + 's',
+            width: 20 + (level * 40) + 'px',
+            height: 20 + (level * 40) + 'px',
+            animationDuration: (++level)*4 + 's',
             animationName: (level % 2) ? 'spin' : 'spin-cc'
         }
 

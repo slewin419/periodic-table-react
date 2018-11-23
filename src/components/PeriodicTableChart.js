@@ -1,6 +1,5 @@
 import React from 'react';
 import Element from './Element';
-import ElementDisplay from './ElementDisplay';
 
 class PeriodicTableChart extends React.Component {
 
@@ -10,23 +9,15 @@ class PeriodicTableChart extends React.Component {
         this.ROWS = 10;
         this.COLUMNS = 18;
 
-        this.displayInfo = this.displayInfo.bind(this);
-
         this.state = {
             currentElement: null            
         };
-    }
-
-    displayInfo(element) {
-        this.setState({
-            currentElement: element
-        });
-    }
+    }   
 
     element(x, y) {
         let {activeElementGroup} = this.props;
         return (
-            <Element xpos={x} ypos={y} handleClick={this.displayInfo} active={activeElementGroup}/>
+            <Element xpos={x} ypos={y} handleClick={this.props.handleElementClick} active={activeElementGroup}/>
         );
     }
 
@@ -45,8 +36,7 @@ class PeriodicTableChart extends React.Component {
 
     render() {              
         return (
-            <div id="periodic-table">
-                <ElementDisplay element={this.state.currentElement} />
+            <div id="periodic-table">                
                 {this.createTable()}
             </div>
         );

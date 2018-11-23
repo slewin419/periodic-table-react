@@ -3,12 +3,10 @@ import Item from './Item';
 
 let appMenuStyle = {
     position: 'fixed',
-    bottom: '0px',
-    background: '#000000ee',
+    bottom: '0px',    
     width: '100%',
     height: '60px',
-    zIndex: '999',
-    color: 'white'
+    zIndex: '999'    
 };
 
 class AppMenu extends React.Component {
@@ -22,13 +20,14 @@ class AppMenu extends React.Component {
         }
     }
 
-    openMenu(e) {
+    toggleMenu(e) {
         this.setState({isMenuOpen: !this.state.isMenuOpen});
     }
 
     handleItemClick(e) {
         let group = e.currentTarget.innerText;        
         this.props.activeElementGroup(group);
+        this.toggleMenu();
     }
 
     render() {
@@ -39,7 +38,7 @@ class AppMenu extends React.Component {
             <div id="app-menu" style={appMenuStyle}>
                 <div className="container">
                     <div className="menu-header">
-                        <div className="toggle-icon" onClick={e => this.openMenu(e)}>
+                        <div className="toggle-icon" onClick={e => this.toggleMenu(e)}>
                             <div></div>
                             <div></div>
                             <div></div>

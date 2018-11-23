@@ -12,7 +12,8 @@ class ElementDisplay extends React.Component {
     }
 
     render() {
-        let element = this.props.element;        
+        let element = this.props.element; 
+        console.log(element);       
         if (element) {
             return (
                 <div id="element-display">
@@ -20,11 +21,12 @@ class ElementDisplay extends React.Component {
                         <Atom shells={element.shells} />
                     </div>
                     <div className="atom-info">
-                        <h4><a href={element.source} title="Wikipedia">{element.name}</a> ({element.phase + ', ' + element.category})</h4>
-                        <h5><i>Discovered by: {element.discovered_by}</i></h5>
-                        <p className="summary">
-                            {element.summary}
-                        </p>
+                        <h4><a href={element.source} title="Wikipedia">{element.name}</a></h4>                        
+                        <div className="summary">
+                            <i>({element.phase + ', ' + element.category})</i>
+                            <p>Discovered by: {element.discovered_by}</p>
+                            <p>{element.summary}</p>
+                        </div>
                     </div>
                 </div>
             )
