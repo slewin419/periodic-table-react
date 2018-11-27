@@ -11,13 +11,26 @@ class App extends Component {
     super(props);
 
     this.state = {
-        activeElementGroup: '',
+        activeElementGroups: [],
         currentElement: ''
     };
   }
 
-  setActiveElementGroup(group){    
-    this.setState({activeElementGroup: group});
+  setActiveElementGroups(group){
+    let groups = [];
+    let selected = this.state.activeElementGroups.findIndex((_group) => group === _group);
+    
+    this.setState((state,props) => {            
+      if(selected === -1){
+        groups = state.activeElementGroups.concat(group);
+      }else {                
+        groups = state.activeElementGroups.filter((_group) => group !== _group);
+      }
+
+      return {
+        activeElementGroups: groups
+      }      
+    });
   }
 
   setCurrentElement(element) {
@@ -33,11 +46,11 @@ class App extends Component {
             <ElementDisplay element={this.state.currentElement} />
           </div>
           <div className="periodic-table-container">
-            <PeriodicTableChart activeElementGroup={this.state.activeElementGroup} handleElementClick={this.setCurrentElement.bind(this)}/>
+            <PeriodicTableChart activeElementGroups={this.state.activeElementGroups} handleElementClick={this.setCurrentElement.bind(this)}/>
           </div>          
         </div>
         <AppMenu title={'Element Groups'} 
-                 activeElementGroup={this.setActiveElementGroup.bind(this)}>            
+                 setActiveElementGroups={this.setActiveElementGroups.bind(this)}>            
             <Item>alkaline earth metal</Item>
             <Item>alkali metal</Item>
             <Item>metalloid</Item>

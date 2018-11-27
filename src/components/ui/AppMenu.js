@@ -16,7 +16,7 @@ class AppMenu extends React.Component {
 
         this.state = {
             isMenuOpen: false,
-            activeElementGroup: ''
+            activeElementGroups: []
         }
     }
 
@@ -25,8 +25,8 @@ class AppMenu extends React.Component {
     }
 
     handleItemClick(e) {
-        let group = e.currentTarget.innerText;        
-        this.props.activeElementGroup(group);
+        let group = e.currentTarget.innerText; 
+        this.props.setActiveElementGroups(group);
         this.toggleMenu();
     }
 

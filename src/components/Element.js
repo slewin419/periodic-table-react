@@ -16,9 +16,11 @@ class Element extends React.Component {
         return this.element.category || '';
     }
 
-    renderElement(element) {
-        console.table(element);
-        let isActive = (this.getCategory() === this.props.active.toLowerCase()) ? 'active' : '';                
+    renderElement(element) {        
+        let isActive = this.props.active.findIndex((group) => {
+            return group.toLowerCase() === this.getCategory();   
+        }) !== -1 ? 'active' : '';   
+
         return (
             <div className={ `element ${isActive}` } onClick={this.props.handleClick.bind(this, element)} title={element.name}>
                 {/* <span className="position">{`${element.xpos}, ${element.ypos}`}</span> */}

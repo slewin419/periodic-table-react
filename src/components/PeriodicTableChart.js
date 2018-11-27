@@ -15,9 +15,9 @@ class PeriodicTableChart extends React.Component {
     }   
 
     element(x, y) {
-        let {activeElementGroup} = this.props;
+        let {activeElementGroups} = this.props;
         return (
-            <Element xpos={x} ypos={y} handleClick={this.props.handleElementClick} active={activeElementGroup}/>
+            <Element xpos={x} ypos={y} handleClick={this.props.handleElementClick} active={activeElementGroups}/>
         );
     }
 

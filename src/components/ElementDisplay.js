@@ -13,7 +13,6 @@ class ElementDisplay extends React.Component {
 
     render() {
         let element = this.props.element; 
-        console.log(element);       
         if (element) {
             return (
                 <div id="element-display">
