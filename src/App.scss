@@ -191,10 +191,6 @@ body,
     &:hover {
       background: gray;
     }
-
-    &.active {
-      background: #1675d1;
-    }
   }
 }
 
@@ -283,5 +279,23 @@ body,
 
   @media screen and (min-width: 1200px) {
     zoom: 1
+  }
+}
+
+
+$elementgroups: (aem, orange),
+(am, green),
+(md, yellow),
+(gas, blue),
+(dn, purple),
+(tm, gray),
+(pm, red);
+
+@each $group,
+$color in $elementgroups {
+
+  #periodic-table .element.active.#{$group},
+  li.#{$group} {
+    background-color: #{$color};
   }
 }

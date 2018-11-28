@@ -16,13 +16,27 @@ class Element extends React.Component {
         return this.element.category || '';
     }
 
+    getCategoryClassName(){
+        return {
+            'alkaline earth metal': 'aem',
+            'alkali metal': 'am',
+            'metalloid': 'md',
+            'noble gas': 'gas',
+            'diatomic nonmetal': 'dn',
+            'transition metal': 'tm',
+            'post-transition metal': 'pm'
+        }[this.getCategory()] || '';
+    }
+
     renderElement(element) {        
         let isActive = this.props.active.findIndex((group) => {
             return group.toLowerCase() === this.getCategory();   
-        }) !== -1 ? 'active' : '';   
+        }) !== -1 ? 'active' : '';
 
         return (
-            <div className={ `element ${isActive}` } onClick={this.props.handleClick.bind(this, element)} title={element.name}>
+            <div className={ `element ${isActive} ${this.getCategoryClassName()}` }                  
+                 onClick={this.props.handleClick.bind(this, element)}                  
+                 title={element.name}>
                 {/* <span className="position">{`${element.xpos}, ${element.ypos}`}</span> */}
                 <span className="number">{element.number}</span>
                 <span className="symbol">{element.symbol}</span>
